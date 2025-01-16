@@ -37,5 +37,5 @@ def load_dataframes(file_paths):
 
         df_tmp["source_date"] = date
         df = pd.concat([df, df_tmp])
-        return df
+    return df
 
