@@ -4,7 +4,14 @@ import os
 import pandas as pd
 import json
 
-def read_filepaths(folder_dir, target_json):
+def read_filepaths(folder_dir: str = "", target_json: str = ""):
+    """Read file paths from directory.
+
+    Args:
+        folder_dir (str, optional): The folder directory. Defaults to "".
+        target_json (str, optional): The target name. Defaults to "".
+    """
+
     if not os.path.isdir(folder_dir):
         raise FileExistsError("Input a vaild folder directory.")
     
@@ -25,7 +32,16 @@ def read_filepaths(folder_dir, target_json):
     return file_paths
 
 
-def load_dataframes(file_paths):
+def load_dataframes(file_paths: list):
+    """Load dataframe
+
+    Args:
+        file_paths (list): A list of JSON file paths.
+
+    Returns:
+        pandas dataframe: a concated dataframe from different JSON files.
+    """
+
     df = pd.DataFrame()
     for file in file_paths:
         date = file.split("_")[-4][:8]
